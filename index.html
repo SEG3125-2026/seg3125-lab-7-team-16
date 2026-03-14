@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage Archive – Canadian Art & History</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <a href="#/" class="logo">Heritage Archive</a>
+    <nav class="nav">
+      <a href="#/">Home</a>
+      <a href="#/browse">Browse</a>
+      <a href="#/help">Help</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- Landing Page -->
+    <section id="page-home" class="page">
+      <div class="hero">
+        <h1>Canadian Art & History</h1>
+        <p class="hero-subtitle">Explore museum collections from across Canada — photographs, paintings, and cultural artifacts with audio descriptions.</p>
+        <a href="#/browse" class="btn btn-primary">Browse Collection</a>
+      </div>
+      <div class="featured-grid">
+        <a href="#/document/the-battle" class="card">
+          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/image.png')"></div>
+          <div class="card-content">
+            <span class="card-museum">Canadian War Museum</span>
+            <h3>The Battle of Vimy Ridge</h3>
+          </div>
+        </a>
+        <a href="#/document/the-devil" class="card">
+          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/image.png')"></div>
+          <div class="card-content">
+            <span class="card-museum">Ottawa Art Gallery</span>
+            <h3>The Devil (Taro Series XV)</h3>
+          </div>
+        </a>
+        <a href="#/document/the-pianist" class="card">
+          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/image.png')"></div>
+          <div class="card-content">
+            <span class="card-museum">National Gallery of Canada</span>
+            <h3>The Pianist</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Browse Page -->
+    <section id="page-browse" class="page hidden">
+      <h2>Browse Collection</h2>
+      <div id="browse-list" class="browse-list"></div>
+    </section>
+
+    <!-- Document Detail Page -->
+    <section id="page-document" class="page hidden">
+      <a href="#/browse" class="back-link">← Back to Browse</a>
+      <div id="document-content" class="document-content"></div>
+      <div class="comments-section">
+        <h3>Comments</h3>
+        <form id="comment-form" class="comment-form">
+          <textarea id="comment-input" placeholder="Share your thoughts..." rows="3" required></textarea>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+        <div id="comments-list" class="comments-list"></div>
+      </div>
+    </section>
+
+    <!-- Help Page -->
+    <section id="page-help" class="page hidden">
+      <h2>Help & FAQ</h2>
+      <div class="help-content">
+        <h3>How to use this site</h3>
+        <p><strong>Browse</strong> — View all artworks in the collection. Click any item to see details.</p>
+        <p><strong>Listen</strong> — Each item has an audio description. Use the player to hear the narration.</p>
+        <p><strong>Comment</strong> — Share your thoughts on each artwork. Comments are saved locally in your browser.</p>
+        <h3>Need more help?</h3>
+        <p>Contact your course TA or visit the SEG3125 course page.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>SEG3125 Lab 7 – Team 16 · Heritage Archive</p>
+    <p class="team-names">Eknoor, Pierre, Zaid</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

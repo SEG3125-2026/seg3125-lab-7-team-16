@@ -1,0 +1,34 @@
+{
+  "documents": [
+    {
+      "id": "theBattle",
+      "slug": "the-battle",
+      "title": "29th Infantry Battalion at Vimy Ridge",
+      "subtitle": "Battle of Vimy Ridge, 1917",
+      "image": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/image.png",
+      "audio": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/audiobook.mp3",
+      "data": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/data.json",
+      "museum": "Canadian War Museum"
+    },
+    {
+      "id": "theDevil",
+      "slug": "the-devil",
+      "title": "The Devil (Taro Series XV)",
+      "subtitle": "Maxwell Bates, 1969",
+      "image": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/image.png",
+      "audio": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/audiobook.mp3",
+      "data": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/data.json",
+      "museum": "Ottawa Art Gallery"
+    },
+    {
+      "id": "thePianist",
+      "slug": "the-pianist",
+      "title": "The Pianist",
+      "subtitle": "Liubov Popova, 1915",
+      "image": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/image.png",
+      "audio": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/audiobook.mp3",
+      "data": "https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/data.json",
+      "museum": "National Gallery of Canada"
+    }
+  ]
+}
