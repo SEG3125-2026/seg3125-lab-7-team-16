@@ -26,6 +26,64 @@ async function init() {
   }
   route();
   window.addEventListener('hashchange', route);
+  setupLightboxListeners();
+  setupLightboxModal();
+}
+
+// Lightbox for image zoom
+let lightboxZoom = 1;
+
+function setupLightboxModal() {
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  const closeBtn = lightbox?.querySelector('.lightbox-close');
+  const zoomIn = document.getElementById('zoom-in');
+  const zoomOut = document.getElementById('zoom-out');
+  const zoomLevel = document.getElementById('zoom-level');
+
+  function closeLightbox() {
+    lightbox?.classList.add('hidden');
+    lightbox?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function updateZoom() {
+    if (img) {
+      img.style.transform = `scale(${lightboxZoom})`;
+      if (zoomLevel) zoomLevel.textContent = Math.round(lightboxZoom * 100) + '%';
+    }
+  }
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  zoomIn?.addEventListener('click', (e) => { e.stopPropagation(); lightboxZoom = Math.min(3, lightboxZoom + 0.25); updateZoom(); });
+  zoomOut?.addEventListener('click', (e) => { e.stopPropagation(); lightboxZoom = Math.max(0.5, lightboxZoom - 0.25); updateZoom(); });
+
+  window.openLightbox = function(url) {
+    if (!lightbox || !img) return;
+    img.src = url;
+    lightboxZoom = 1;
+    updateZoom();
+    lightbox.classList.remove('hidden');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+}
+
+function setupLightboxListeners() {
+  document.querySelectorAll('.zoomable-image').forEach(el => {
+    el.removeEventListener('click', handleZoomableClick);
+    el.addEventListener('click', handleZoomableClick);
+  });
+}
+
+function handleZoomableClick(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const url = e.currentTarget.dataset.imageUrl || e.currentTarget.src;
+  if (url && window.openLightbox) window.openLightbox(url);
 }
 
 // Simple hash router
@@ -60,13 +118,15 @@ function renderBrowse() {
 
   list.innerHTML = documents.map(doc => `
     <a href="#/document/${doc.slug}" class="browse-item">
-      <div class="browse-item-image" style="background-image: url('${doc.image}')"></div>
+      <div class="browse-item-image zoomable-image" data-image-url="${doc.image}" style="background-image: url('${doc.image}')"></div>
       <div class="browse-item-content">
         <h3>${escapeHtml(doc.title)}</h3>
         <span class="museum">${escapeHtml(doc.museum)}</span>
       </div>
     </a>
   `).join('');
+
+  setupLightboxListeners();
 }
 
 // Document detail page
@@ -88,12 +148,12 @@ async function renderDocument(slug) {
     meta = { error: 'Could not load metadata' };
   }
 
-  const description = meta.catalogue_description || meta.description || meta.scope_and_content || '';
+  const description = meta.catalogue_description || meta.related_material || meta.description || meta.scope_and_content || '';
   const metaFields = buildMetaFields(meta, doc);
 
   container.innerHTML = `
     <div class="document-image-wrap">
-      <img src="${doc.image}" alt="${escapeHtml(doc.title)}">
+      <img src="${doc.image}" alt="${escapeHtml(doc.title)}" class="zoomable-image" data-image-url="${doc.image}">
     </div>
     <div class="document-body">
       <h2>${escapeHtml(doc.title)}</h2>
@@ -112,6 +172,9 @@ async function renderDocument(slug) {
 
   // Setup comment form for this document
   setupComments(doc.id);
+
+  // Setup lightbox for document image
+  setupLightboxListeners();
 }
 
 function buildMetaFields(meta, doc) {

@@ -29,21 +29,21 @@
       </div>
       <div class="featured-grid">
         <a href="#/document/the-battle" class="card">
-          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/image.png')"></div>
+          <div class="card-image zoomable-image" data-image-url="https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/image.png" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theBattle/image.png')" title="Click to enlarge"></div>
           <div class="card-content">
             <span class="card-museum">Canadian War Museum</span>
             <h3>The Battle of Vimy Ridge</h3>
           </div>
         </a>
         <a href="#/document/the-devil" class="card">
-          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/image.png')"></div>
+          <div class="card-image zoomable-image" data-image-url="https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/image.png" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/theDevil/image.png')" title="Click to enlarge"></div>
           <div class="card-content">
             <span class="card-museum">Ottawa Art Gallery</span>
             <h3>The Devil (Taro Series XV)</h3>
           </div>
         </a>
         <a href="#/document/the-pianist" class="card">
-          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/image.png')"></div>
+          <div class="card-image zoomable-image" data-image-url="https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/image.png" style="background-image: url('https://raw.githubusercontent.com/SEG3125-2026/seg3125-lab-7-team-16/main/documents/thePianist/image.png')" title="Click to enlarge"></div>
           <div class="card-content">
             <span class="card-museum">National Gallery of Canada</span>
             <h3>The Pianist</h3>
@@ -85,6 +85,19 @@
       </div>
     </section>
   </main>
+
+  <!-- Image lightbox (zoom) -->
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-zoom-controls">
+        <button class="lightbox-zoom-btn" id="zoom-out" aria-label="Zoom out">−</button>
+        <span id="zoom-level">100%</span>
+        <button class="lightbox-zoom-btn" id="zoom-in" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <p>SEG3125 Lab 7 – Team 16 · Heritage Archive</p>
